@@ -4,8 +4,6 @@ import {useState} from "react";
 import {CAMPSITES} from "../shared/campsites";
 
 
-/*const DirectoryScreen = ({navigation}) =>{
-    const [campsites, setCampsites] = useState(CAMPSITES);*/
 const DirectoryScreen = ({ navigation }) => {
         const [campsites, setCampsites] = useState(CAMPSITES);
 
