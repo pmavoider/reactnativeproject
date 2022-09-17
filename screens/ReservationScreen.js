@@ -31,6 +31,30 @@ const ReservationScreen = () => {
         console.log('campers:', campers);
         console.log('hikeIn:', hikeIn);
         console.log('date:', date);
+
+        Alert.alert(
+            "Search",
+            `Number of Campers: ${campers} \n
+                Hike-In?: ${hikeIn ? 'Yes' : 'No'}\n
+                Date: ${date.toLocaleDateString('en-US')}`,
+
+
+            [
+                {
+                    text: "Cancel",
+                    onPress:() => resetForm(),
+                    style: "cancel"
+
+                
+                },
+                {
+                    text: "OK",
+                    onPress:() => resetForm() 
+                }
+            ],
+            { cancelable: false }
+            
+                    );
         
     };
 
@@ -115,28 +139,7 @@ const ReservationScreen = () => {
             <View style={styles.formRow}>
                 <Button
                     onPress={() =>
-                        Alert.alert(
-                            "Search",
-                            `Number of Campers: ${campers} \n
-                             Hike-In?: ${hikeIn ? 'Yes' : 'No'}
-                             Date: ${date.toLocaleDateString('en-US')}`,
-                          
-                        
-                            [{
-                                text: "Cancel",
-                                onPress:() => resetForm()
-                               
-                              },{
-                                text: "OK",
-                                onPress: () => {
-                                    presentLocalNotification(
-                                        date.toLocaleDateString('en-US')
-                                    );
-                                    resetForm();
-                                }
-                              }
-                             ]
-                            )
+                        handleReservation()
                     }
                     title='Search Availability'
                     color='#5637DD'
